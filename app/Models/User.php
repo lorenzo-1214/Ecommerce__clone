@@ -1,24 +1,31 @@
 <?php
 
-// File: app/Models/User.php
-
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use Notifiable;
 
-    // Altri metodi e proprietà...
+    // Aggiungi qui i campi che possono essere assegnati in massa
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'is_admin',  // Aggiungi anche il campo is_admin
+    ];
 
-    /**
-     * Relazione tra l'utente e gli articoli del carrello (uno a molti)
-     */
-    public function cartItems()
-    {
-        return $this->hasMany(CartItem::class);
-    }
+    // Se usi anche il campo password e lo vuoi protetto, aggiungi:
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    // Se hai bisogno di castare i dati, per esempio 'is_admin' a booleano
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'is_admin' => 'boolean',
+    ];
 }

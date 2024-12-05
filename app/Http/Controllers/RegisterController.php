@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Auth; // Importa la facciata Auth
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
+    // Mostra il form di registrazione
+    public function showRegisterForm()
+    {
+        return view('auth.register');
+    }
+
+    // Gestisce la registrazione
     public function register(Request $request)
     {
         // Validazione dei dati
@@ -27,9 +33,10 @@ class RegisterController extends Controller
             'is_admin' => false, // Default è false, lo cambiamo solo per l'admin
         ]);
 
-        // Login automatico
-        Auth::login($user); // Usando Auth per il login
+        // Login automatico con il metodo Auth::login()
+        Auth::login($user);
 
+        // Redirect alla home
         return redirect()->route('home');
     }
 }
