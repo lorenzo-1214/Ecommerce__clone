@@ -30,3 +30,21 @@ Route::middleware('auth')->get('/orders', [OrderController::class, 'index'])->na
 
 // Visualizza il dettaglio di un ordine (solo utenti autenticati)
 Route::middleware('auth')->get('/order/{id}', [OrderController::class, 'show'])->name('orders.show');
+
+
+// Rotta per la pagina degli ordini
+Route::get('/orders', function () {
+    return view('orders');
+})->name('orders.index');
+
+
+// Rotta per la pagina dei prodotti
+Route::get('/products', function () {
+    return view('products');
+})->name('products.index');
+
+
+// Rotta per la pagina del carrello
+Route::get('/cart', function () {
+    return view('cart');
+})->name('cart.index');
