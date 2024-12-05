@@ -48,3 +48,15 @@ Route::get('/products', function () {
 Route::get('/cart', function () {
     return view('cart');
 })->name('cart.index');
+
+
+// Rotta per la pagina di login
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+// Rotta per la pagina di registrazione
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
+
