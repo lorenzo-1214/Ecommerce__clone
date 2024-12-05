@@ -4,7 +4,8 @@
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 // Pagina principale, visualizza i prodotti
@@ -31,32 +32,13 @@ Route::middleware('auth')->get('/orders', [OrderController::class, 'index'])->na
 // Visualizza il dettaglio di un ordine (solo utenti autenticati)
 Route::middleware('auth')->get('/order/{id}', [OrderController::class, 'show'])->name('orders.show');
 
+// Rotte per il login
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 
-// Rotta per la pagina degli ordini
-Route::get('/orders', function () {
-    return view('orders');
-})->name('orders.index');
+// Rotte per la registrazione
+Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
 
-
-// Rotta per la pagina dei prodotti
-Route::get('/products', function () {
-    return view('products');
-})->name('products.index');
-
-
-// Rotta per la pagina del carrello
-Route::get('/cart', function () {
-    return view('cart');
-})->name('cart.index');
-
-
-// Rotta per la pagina di login
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
-
-// Rotta per la pagina di registrazione
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
-
+// Rotta per il logout
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
