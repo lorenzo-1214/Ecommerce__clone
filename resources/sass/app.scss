@@ -1,2 +1,4 @@
-// Importa il file SCSS di Bootstrap
+// resources/sass/app.scss
+
 @import 'bootstrap/scss/bootstrap';
+@import 'custom'; // Aggiungeremo un file custom per le personalizzazioni

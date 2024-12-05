@@ -1,0 +1,60 @@
+// resources/sass/custom.scss
+
+/* Stili personalizzati per il progetto */
+
+/* Esempio di personalizzazione per il carrello */
+.cart-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.cart-item .product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.cart-item .product-quantity {
+    font-size: 1rem;
+    color: #555;
+}
+
+.cart-item .product-price {
+    font-size: 1.2rem;
+    color: #e74c3c;
+}
+
+/* Stile per il totale del carrello */
+.cart-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+    color: #27ae60;
+}
+
+/* Aggiungi uno stile base per la pagina */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    border-color: #2980b9;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #1c6694;
+}
